@@ -2593,7 +2593,7 @@
 				TargetAttributes = {
 					2912CCF41F6A830700C6CBE3 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -3509,6 +3509,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7edbff9c-3e3f-4ba3-b84f-19ac095b8e95";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sixdays.trust";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -3536,6 +3537,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7edbff9c-3e3f-4ba3-b84f-19ac095b8e95";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sixdays.trust";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};

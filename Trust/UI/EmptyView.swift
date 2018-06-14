@@ -40,8 +40,8 @@ class EmptyView: UIView {
         imageView.image = image
 
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(actionTitle, for: .normal)
-        button.addTarget(self, action: #selector(retry), for: .touchUpInside)
+        button.setTitle(actionTitle, for: UIControl.State.normal)
+        button.addTarget(self, action: #selector(retry), for: UIControl.Event.touchUpInside)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
 
         let stackView = UIStackView(arrangedSubviews: [

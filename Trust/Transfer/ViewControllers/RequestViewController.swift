@@ -19,8 +19,8 @@ class RequestViewController: UIViewController {
     lazy var copyButton: UIButton = {
         let button = Button(size: .normal, style: .border)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(viewModel.copyWalletText, for: .normal)
-        button.addTarget(self, action: #selector(copyAddress), for: .touchUpInside)
+        button.setTitle(viewModel.copyWalletText, for: UIControl.State.normal)
+        button.addTarget(self, action: #selector(copyAddress), for: UIControl.Event.touchUpInside)
         return button
     }()
 
@@ -76,10 +76,10 @@ class RequestViewController: UIViewController {
     }
 
     private func displayStackViewController() {
-        addChildViewController(stackViewController)
+        addChild(stackViewController)
         view.addSubview(stackViewController.view)
         _ = stackViewController.view.activateSuperviewHuggingConstraints()
-        stackViewController.didMove(toParentViewController: self)
+        stackViewController.didMove(toParent: self)
 
         stackViewController.stackView.spacing = 20
         stackViewController.stackView.alignment = .center

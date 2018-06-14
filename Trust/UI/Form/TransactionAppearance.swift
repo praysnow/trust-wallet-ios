@@ -73,7 +73,7 @@ struct TransactionAppearance {
         return stackView
     }
 
-    static func horizontalItem(views: [UIView], distribution: UIStackViewDistribution = .fillProportionally) -> UIView {
+    static func horizontalItem(views: [UIView], distribution: UIStackView.Distribution = .fillProportionally) -> UIView {
         let view = UIStackView(arrangedSubviews: views)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.distribution = distribution
@@ -125,7 +125,7 @@ extension UIStackView {
     func addBackground(color: UIColor) {
         let subView = UIView(frame: bounds)
         subView.backgroundColor = color
-        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        subView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         insertSubview(subView, at: 0)
     }
 }

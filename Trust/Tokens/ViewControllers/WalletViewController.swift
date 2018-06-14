@@ -15,12 +15,12 @@ class WalletViewController: UIViewController {
         ]
         let segmentedControl = UISegmentedControl(items: items)
         segmentedControl.selectedSegmentIndex = DetailsViewType.tokens.rawValue
-        segmentedControl.addTarget(self, action: #selector(selectionDidChange(_:)), for: .valueChanged)
-        let titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        let selectedTextAttributes = [NSAttributedStringKey.foregroundColor: Colors.blue]
-        segmentedControl.setTitleTextAttributes(selectedTextAttributes, for: .selected)
-        segmentedControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
-        segmentedControl.setDividerImage(UIImage.filled(with: UIColor.white), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+        segmentedControl.addTarget(self, action: #selector(selectionDidChange(_:)), for: UIControl.Event.valueChanged)
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        let selectedTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.blue]
+        segmentedControl.setTitleTextAttributes(selectedTextAttributes, for: UIControl.State.selected)
+        segmentedControl.setTitleTextAttributes(titleTextAttributes, for: UIControl.State.normal)
+        segmentedControl.setDividerImage(UIImage.filled(with: UIColor.white), forLeftSegmentState: UIControl.State.normal, rightSegmentState: UIControl.State.normal, barMetrics: .default)
         for selectView in segmentedControl.subviews {
             selectView.tintColor = UIColor.white
         }

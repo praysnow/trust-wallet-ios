@@ -26,8 +26,8 @@ class ConfirmPaymentViewController: UIViewController {
     lazy var submitButton: UIButton = {
         let button = Button(size: .large, style: .solid)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(viewModel.actionButtonText, for: .normal)
-        button.addTarget(self, action: #selector(send), for: .touchUpInside)
+        button.setTitle(viewModel.actionButtonText, for: UIControl.State.normal)
+        button.addTarget(self, action: #selector(send), for: UIControl.Event.touchUpInside)
         return button
     }()
     lazy var viewModel: ConfirmPaymentViewModel = {
@@ -177,7 +177,7 @@ class ConfirmPaymentViewController: UIViewController {
             transferType: configurator.transaction.transferType
         )
         submitButton.isEnabled = status.sufficient
-        submitButton.setTitle(buttonTitle, for: .normal)
+        submitButton.setTitle(buttonTitle, for: UIControl.State.normal)
     }
 
     private func reloadView() {

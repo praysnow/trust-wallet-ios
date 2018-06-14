@@ -34,7 +34,7 @@ class WelcomeViewController: UIViewController {
     let createWalletButton: UIButton = {
         let button = Button(size: .large, style: .solid)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(NSLocalizedString("welcome.createWallet.button.title", value: "CREATE WALLET", comment: ""), for: .normal)
+        button.setTitle(NSLocalizedString("welcome.createWallet.button.title", value: "CREATE WALLET", comment: ""), for: UIControl.State.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
         button.backgroundColor = Colors.darkBlue
         return button
@@ -42,7 +42,7 @@ class WelcomeViewController: UIViewController {
     let importWalletButton: UIButton = {
         let importWalletButton = Button(size: .large, style: .border)
         importWalletButton.translatesAutoresizingMaskIntoConstraints = false
-        importWalletButton.setTitle(NSLocalizedString("welcome.importWallet.button.title", value: "IMPORT WALLET", comment: ""), for: .normal)
+        importWalletButton.setTitle(NSLocalizedString("welcome.importWallet.button.title", value: "IMPORT WALLET", comment: ""), for: UIControl.State.normal)
         importWalletButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
         importWalletButton.accessibilityIdentifier = "import-wallet"
         return importWalletButton
@@ -108,8 +108,8 @@ class WelcomeViewController: UIViewController {
             importWalletButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
         ])
 
-        createWalletButton.addTarget(self, action: #selector(start), for: .touchUpInside)
-        importWalletButton.addTarget(self, action: #selector(importFlow), for: .touchUpInside)
+        createWalletButton.addTarget(self, action: #selector(start), for: UIControl.Event.touchUpInside)
+        importWalletButton.addTarget(self, action: #selector(importFlow), for: UIControl.Event.touchUpInside)
 
         configure(viewModel: viewModel)
     }

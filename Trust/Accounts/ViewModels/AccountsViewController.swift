@@ -48,7 +48,7 @@ class AccountsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
         tableView.register(R.nib.accountViewCell(), forCellReuseIdentifier: R.nib.accountViewCell.name)
     }
@@ -91,8 +91,8 @@ class AccountsViewController: UITableViewController {
         return (EtherKeystore.current != viewModel.wallet(for: indexPath) || viewModel.isLastWallet)
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.delete, let wallet = self.wallet(for: indexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete, let wallet = self.wallet(for: indexPath) {
             confirmDelete(wallet: wallet)
         }
     }

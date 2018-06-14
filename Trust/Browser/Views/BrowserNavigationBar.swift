@@ -28,29 +28,29 @@ class BrowserNavigationBar: UINavigationBar {
         textField.layer.borderWidth = 0.5
         textField.layer.borderColor = Colors.lightGray.cgColor
         textField.autocapitalizationType = .none
-        textField.autoresizingMask = .flexibleWidth
+        textField.autoresizingMask = UIView.AutoresizingMask.flexibleWidth
         textField.delegate = self
         textField.autocorrectionType = .no
         textField.returnKeyType = .go
         textField.clearButtonMode = .whileEditing
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 6, height: 30))
         textField.leftViewMode = .always
-        textField.autoresizingMask = [.flexibleWidth]
+        textField.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth]
         textField.setContentHuggingPriority(.required, for: .horizontal)
         textField.placeholder = NSLocalizedString("browser.url.textfield.placeholder", value: "Search or enter website url", comment: "")
         textField.keyboardType = .webSearch
 
         moreButton.translatesAutoresizingMaskIntoConstraints = false
-        moreButton.setImage(R.image.toolbarMenu(), for: .normal)
-        moreButton.addTarget(self, action: #selector(moreAction(_:)), for: .touchUpInside)
+        moreButton.setImage(R.image.toolbarMenu(), for: UIControl.State.normal)
+        moreButton.addTarget(self, action: #selector(moreAction(_:)), for: UIControl.Event.touchUpInside)
 
         homeButton.translatesAutoresizingMaskIntoConstraints = false
-        homeButton.setImage(R.image.browserHome(), for: .normal)
-        homeButton.addTarget(self, action: #selector(homeAction(_:)), for: .touchUpInside)
+        homeButton.setImage(R.image.browserHome(), for: UIControl.State.normal)
+        homeButton.addTarget(self, action: #selector(homeAction(_:)), for: UIControl.Event.touchUpInside)
 
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setImage(R.image.toolbarBack(), for: .normal)
-        backButton.addTarget(self, action: #selector(goBackAction), for: .touchUpInside)
+        backButton.setImage(R.image.toolbarBack(), for: UIControl.State.normal)
+        backButton.addTarget(self, action: #selector(goBackAction), for: UIControl.Event.touchUpInside)
 
         let stackView = UIStackView(arrangedSubviews: [
             homeButton,

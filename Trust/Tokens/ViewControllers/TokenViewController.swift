@@ -49,11 +49,11 @@ class TokenViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
         ])
 
-        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: UIControl.Event.valueChanged)
         tableView.addSubview(refreshControl)
 
-        header.buttonsView.requestButton.addTarget(self, action: #selector(request), for: .touchUpInside)
-        header.buttonsView.sendButton.addTarget(self, action: #selector(send), for: .touchUpInside)
+        header.buttonsView.requestButton.addTarget(self, action: #selector(request), for: UIControl.Event.touchUpInside)
+        header.buttonsView.sendButton.addTarget(self, action: #selector(send), for: UIControl.Event.touchUpInside)
         updateHeader()
     }
 

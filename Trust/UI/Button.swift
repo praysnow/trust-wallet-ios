@@ -114,11 +114,11 @@ class Button: UIButton {
         layer.masksToBounds = true
         titleLabel?.textColor = style.textColor
         titleLabel?.font = style.font
-        setTitleColor(style.textColor, for: .normal)
-        setTitleColor(style.textColorHighlighted, for: .highlighted)
-        setBackgroundColor(style.backgroundColorHighlighted, forState: .highlighted)
-        setBackgroundColor(style.backgroundColorHighlighted, forState: .selected)
-        setBackgroundColor(style.backgroundColorDisabled, forState: .disabled)
+        setTitleColor(style.textColor, for: UIControl.State.normal)
+        setTitleColor(style.textColorHighlighted, for: UIControl.State.highlighted)
+        setBackgroundColor(style.backgroundColorHighlighted, forState: UIControl.State.highlighted)
+        setBackgroundColor(style.backgroundColorHighlighted, forState: UIControl.State.selected)
+        setBackgroundColor(style.backgroundColorDisabled, forState: UIControl.State.disabled)
 
         contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
     }

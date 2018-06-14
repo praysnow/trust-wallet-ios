@@ -23,8 +23,8 @@ class TokensCoordinator: Coordinator {
     lazy var tokensViewController: TokensViewController = {
         let tokensViewModel = TokensViewModel(address: session.account.address, store: store, tokensNetwork: network)
         let controller = TokensViewController(viewModel: tokensViewModel)
-        controller.footerView.requestButton.addTarget(self, action: #selector(request), for: .touchUpInside)
-        controller.footerView.sendButton.addTarget(self, action: #selector(send), for: .touchUpInside)
+        controller.footerView.requestButton.addTarget(self, action: #selector(request), for: UIControl.Event.touchUpInside)
+        controller.footerView.sendButton.addTarget(self, action: #selector(send), for: UIControl.Event.touchUpInside)
         controller.delegate = self
         return controller
     }()

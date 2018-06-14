@@ -24,9 +24,9 @@ class PassphraseViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
 
         let copyButton = Button(size: .small, style: .borderless)
-        copyButton.setTitle(NSLocalizedString("Copy", value: "Copy", comment: ""), for: .normal)
+        copyButton.setTitle(NSLocalizedString("Copy", value: "Copy", comment: ""), for: UIControl.State.normal)
         copyButton.translatesAutoresizingMaskIntoConstraints = false
-        copyButton.addTarget(self, action: #selector(copyAction), for: .touchUpInside)
+        copyButton.addTarget(self, action: #selector(copyAction), for: UIControl.Event.touchUpInside)
 
         let stackView = UIStackView(arrangedSubviews: [
             .spacer(height: 10),

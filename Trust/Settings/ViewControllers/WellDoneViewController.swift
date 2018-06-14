@@ -29,8 +29,8 @@ class WellDoneViewController: UIViewController {
 
         let otherButton = Button(size: .normal, style: .solid)
         otherButton.translatesAutoresizingMaskIntoConstraints = false
-        otherButton.setTitle(NSLocalizedString("welldone.share.label.text", value: "Share", comment: ""), for: .normal)
-        otherButton.addTarget(self, action: #selector(other(_:)), for: .touchUpInside)
+        otherButton.setTitle(NSLocalizedString("welldone.share.label.text", value: "Share", comment: ""), for: UIControl.State.normal)
+        otherButton.addTarget(self, action: #selector(other(_:)), for: UIControl.Event.touchUpInside)
 
         let stackView = UIStackView(arrangedSubviews: [
             imageView,

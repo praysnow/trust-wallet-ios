@@ -27,7 +27,7 @@ class MasterBrowserViewController: UIViewController {
             NSLocalizedString("History", value: "History", comment: ""),
         ]
         let segmentedControl = UISegmentedControl(items: items)
-        segmentedControl.addTarget(self, action: #selector(selectionDidChange(_:)), for: .valueChanged)
+        segmentedControl.addTarget(self, action: #selector(selectionDidChange(_:)), for: UIControl.Event.valueChanged)
         segmentedControl.tintColor = .clear
         return segmentedControl
     }()
@@ -35,8 +35,8 @@ class MasterBrowserViewController: UIViewController {
     private lazy var qrcodeButton: UIButton = {
         let button = Button(size: .normal, style: .borderless)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(R.image.browser_scan(), for: .normal)
-        button.addTarget(self, action: #selector(qrReader), for: .touchUpInside)
+        button.setImage(R.image.browser_scan(), for: UIControl.State.normal)
+        button.addTarget(self, action: #selector(qrReader), for: UIControl.Event.touchUpInside)
         return button
     }()
 

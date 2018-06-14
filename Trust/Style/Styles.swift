@@ -14,7 +14,7 @@ func applyStyle() {
     UINavigationBar.appearance(whenContainedInInstancesOf: [NavigationController.self]).barTintColor = AppGlobalStyle.barTintColor
 
     UINavigationBar.appearance(whenContainedInInstancesOf: [NavigationController.self]).titleTextAttributes = [
-        .foregroundColor: UIColor.white,
+        NSAttributedString.Key.foregroundColor: UIColor.white,
     ]
 
     UITextField.appearance().tintColor = Colors.blue

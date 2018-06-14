@@ -30,8 +30,8 @@ class NFTokenViewController: UIViewController {
     lazy var sendButton: UIButton = {
         let sendButton = Button(size: .normal, style: .border)
         sendButton.translatesAutoresizingMaskIntoConstraints = false
-        sendButton.setTitle(viewModel.sendButtonTitle, for: .normal)
-        sendButton.addTarget(self, action: #selector(sendTap), for: .touchUpInside)
+        sendButton.setTitle(viewModel.sendButtonTitle, for: UIControl.State.normal)
+        sendButton.addTarget(self, action: #selector(sendTap), for: UIControl.Event.touchUpInside)
         return sendButton
     }()
 
@@ -74,13 +74,13 @@ class NFTokenViewController: UIViewController {
 
         let internalButton = Button(size: .normal, style: .border)
         internalButton.translatesAutoresizingMaskIntoConstraints = false
-        internalButton.setTitle(viewModel.internalButtonTitle, for: .normal)
-        internalButton.addTarget(self, action: #selector(internalTap), for: .touchUpInside)
+        internalButton.setTitle(viewModel.internalButtonTitle, for: UIControl.State.normal)
+        internalButton.addTarget(self, action: #selector(internalTap), for: UIControl.Event.touchUpInside)
 
         let externalButton = Button(size: .normal, style: .border)
         externalButton.translatesAutoresizingMaskIntoConstraints = false
-        externalButton.setTitle(viewModel.externalButtonTitle, for: .normal)
-        externalButton.addTarget(self, action: #selector(externalTap), for: .touchUpInside)
+        externalButton.setTitle(viewModel.externalButtonTitle, for: UIControl.State.normal)
+        externalButton.addTarget(self, action: #selector(externalTap), for: UIControl.Event.touchUpInside)
 
         view.backgroundColor = .white
         title = viewModel.title

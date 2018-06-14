@@ -35,8 +35,8 @@ class ErrorView: UIView {
         imageView.image = image
 
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(NSLocalizedString("Retry", value: "Retry", comment: ""), for: .normal)
-        button.addTarget(self, action: #selector(retry), for: .touchUpInside)
+        button.setTitle(NSLocalizedString("Retry", value: "Retry", comment: ""), for: UIControl.State.normal)
+        button.addTarget(self, action: #selector(retry), for: UIControl.Event.touchUpInside)
 
         let stackView = UIStackView(arrangedSubviews: [
             imageView,

@@ -25,7 +25,7 @@ class TokensViewController: UIViewController {
         header.amountLabel.textColor = viewModel.headerBalanceTextColor
         header.backgroundColor = viewModel.headerBackgroundColor
         header.amountLabel.font = viewModel.headerBalanceFont
-        header.frame.size = header.systemLayoutSizeFitting(UILayoutFittingExpandedSize)
+        header.frame.size = header.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize)
         return header
     }()
 
@@ -34,7 +34,7 @@ class TokensViewController: UIViewController {
         footer.textLabel.text = viewModel.footerTitle
         footer.textLabel.font = viewModel.footerTextFont
         footer.textLabel.textColor = viewModel.footerTextColor
-        footer.frame.size = footer.systemLayoutSizeFitting(UILayoutFittingExpandedSize)
+        footer.frame.size = footer.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize)
         footer.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(missingToken))
         )
@@ -82,7 +82,7 @@ class TokensViewController: UIViewController {
             footerView.bottomAnchor.constraint(equalTo: view.layoutGuide.bottomAnchor),
         ])
         tableView.register(TokenViewCell.self, forCellReuseIdentifier: TokenViewCell.identifier)
-        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: UIControl.Event.valueChanged)
         tableView.addSubview(refreshControl)
         errorView = ErrorView(onRetry: { [weak self] in
             self?.startLoading()
@@ -98,8 +98,8 @@ class TokensViewController: UIViewController {
         tableView.tableHeaderView = header
         tableView.tableFooterView = footer
         sheduleBalanceUpdate()
-        NotificationCenter.default.addObserver(self, selector: #selector(TokensViewController.resignActive), name: .UIApplicationWillResignActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(TokensViewController.didBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TokensViewController.resignActive), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TokensViewController.didBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
     override func viewDidLoad() {
@@ -197,7 +197,7 @@ extension TokensViewController: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let token = viewModel.item(for: indexPath)
-        let delete = UITableViewRowAction(style: .destructive, title: NSLocalizedString("Delete", value: "Delete", comment: "")) {[unowned self] (_, _) in
+        let delete = UITableViewRowAction(style: UITableViewRowAction.Style.destructive, title: NSLocalizedString("Delete", value: "Delete", comment: "")) {[unowned self] (_, _) in
             self.delegate?.didDelete(token: token, in: self)
         }
         let edit = UITableViewRowAction(style: .normal, title: NSLocalizedString("Edit", value: "Edit", comment: "")) {[unowned self] (_, _) in

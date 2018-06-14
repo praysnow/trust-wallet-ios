@@ -11,7 +11,7 @@ class FieldAppereance {
     ) -> UIView {
         let pasteButton = Button(size: .normal, style: .borderless)
         pasteButton.translatesAutoresizingMaskIntoConstraints = false
-        pasteButton.setTitle(NSLocalizedString("send.paste.button.title", value: "Paste", comment: ""), for: .normal)
+        pasteButton.setTitle(NSLocalizedString("send.paste.button.title", value: "Paste", comment: ""), for: UIControl.State.normal)
         UITapGestureRecognizer(addToView: pasteButton) {
             pasteAction()
         }
@@ -19,7 +19,7 @@ class FieldAppereance {
         let qrButton = UIButton(type: .custom)
         qrButton.translatesAutoresizingMaskIntoConstraints = false
         qrButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
-        qrButton.setImage(R.image.qr_code_icon(), for: .normal)
+        qrButton.setImage(R.image.qr_code_icon(), for: UIControl.State.normal)
         qrButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         UITapGestureRecognizer(addToView: qrButton) {
             qrAction()

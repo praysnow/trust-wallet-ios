@@ -329,7 +329,7 @@ class SettingsViewController: FormViewController, Coordinator {
         }.onCellSelection { [weak self] _, _ in
             guard let `self` = self else { return }
             if let localURL = type.localURL, UIApplication.shared.canOpenURL(localURL) {
-                UIApplication.shared.open(localURL, options: [:], completionHandler: .none)
+                UIApplication.shared.open(localURL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: .none)
             } else {
                 self.openURLInBrowser(type.remoteURL)
             }
@@ -398,4 +398,9 @@ extension SettingsViewController: Scrollable {
         guard isViewLoaded else { return }
         tableView.scrollOnTop()
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

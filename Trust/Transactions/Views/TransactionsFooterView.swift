@@ -9,7 +9,7 @@ class TransactionsFooterView: UIView {
         let sendButton = Button(size: .large, style: .squared)
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         sendButton.layer.cornerRadius = 6
-        sendButton.setTitle(NSLocalizedString("Send", value: "Send", comment: ""), for: .normal)
+        sendButton.setTitle(NSLocalizedString("Send", value: "Send", comment: ""), for: UIControl.State.normal)
         sendButton.accessibilityIdentifier = "send-button"
         sendButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.medium)
         return sendButton
@@ -20,7 +20,7 @@ class TransactionsFooterView: UIView {
         requestButton.translatesAutoresizingMaskIntoConstraints = false
         requestButton.layer.cornerRadius = 6
         requestButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.medium)
-        requestButton.setTitle(NSLocalizedString("transactions.receive.button.title", value: "Receive", comment: ""), for: .normal)
+        requestButton.setTitle(NSLocalizedString("transactions.receive.button.title", value: "Receive", comment: ""), for: UIControl.State.normal)
         return requestButton
     }()
 

@@ -12,7 +12,7 @@ class ProtectionCoordinator: Coordinator {
     }()
     let protectionWindow = UIWindow()
     init() {
-        protectionWindow.windowLevel = UIWindowLevelStatusBar + 2.0
+        protectionWindow.windowLevel = UIWindow.Level(rawValue: RawValue(Double(UIWindow.Level.statusBar.rawValue) + 2.0))
     }
 
     func didFinishLaunchingWithOptions() {

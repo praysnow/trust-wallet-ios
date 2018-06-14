@@ -36,7 +36,7 @@ class NonFungibleTokensViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
         ])
-        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: UIControl.Event.valueChanged)
         tableView.addSubview(refreshControl)
         errorView = ErrorView(onRetry: { [weak self] in
             self?.fetch()

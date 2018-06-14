@@ -52,7 +52,7 @@ class TransactionsViewController: UIViewController {
         ])
 
         refreshControl.backgroundColor = TransactionsViewModel.backgroundColor
-        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: UIControl.Event.valueChanged)
         tableView.addSubview(refreshControl)
 
         errorView = ErrorView(insets: insets, onRetry: { [weak self] in
@@ -73,8 +73,8 @@ class TransactionsViewController: UIViewController {
 
         navigationItem.title = viewModel.title
         runScheduledTimers()
-        NotificationCenter.default.addObserver(self, selector: #selector(TransactionsViewController.stopTimers), name: .UIApplicationWillResignActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(TransactionsViewController.restartTimers), name: .UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TransactionsViewController.stopTimers), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TransactionsViewController.restartTimers), name: UIApplication.didBecomeActiveNotification, object: nil)
 
         transactionsObservation()
     }

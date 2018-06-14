@@ -46,8 +46,8 @@ class BackupViewController: UIViewController {
 
         let backupButton = Button(size: .large, style: .solid)
         backupButton.translatesAutoresizingMaskIntoConstraints = false
-        backupButton.setTitle(NSLocalizedString("export.backup.button.title", value: "Backup Wallet", comment: ""), for: .normal)
-        backupButton.addTarget(self, action: #selector(backup), for: .touchUpInside)
+        backupButton.setTitle(NSLocalizedString("export.backup.button.title", value: "Backup Wallet", comment: ""), for: UIControl.State.normal)
+        backupButton.addTarget(self, action: #selector(backup), for: UIControl.Event.touchUpInside)
 
         let stackView = UIStackView(
             arrangedSubviews: [

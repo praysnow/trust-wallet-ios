@@ -108,9 +108,9 @@ class TransactionViewController: UIViewController {
 
     private func moreDetails() -> UIView {
         let button = Button(size: .large, style: .border)
-        button.setTitle(NSLocalizedString("More Details", value: "More Details", comment: ""), for: .normal)
+        button.setTitle(NSLocalizedString("More Details", value: "More Details", comment: ""), for: UIControl.State.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(more), for: .touchUpInside)
+        button.addTarget(self, action: #selector(more), for: UIControl.Event.touchUpInside)
 
         let stackView = UIStackView(arrangedSubviews: [button])
         stackView.translatesAutoresizingMaskIntoConstraints = false

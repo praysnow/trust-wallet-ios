@@ -22,7 +22,7 @@ class ExportPrivateKeyViewConroller: UIViewController {
         let button = Button(size: .normal, style: .border)
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(unBlur))
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(viewModel.revealButtonTitle, for: .normal)
+        button.setTitle(viewModel.revealButtonTitle, for: UIControl.State.normal)
         button.addGestureRecognizer(longGesture)
         return button
     }()
@@ -102,7 +102,7 @@ class ExportPrivateKeyViewConroller: UIViewController {
         let view = UIVisualEffectView(effect: blur)
 
         view.frame = image.bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         view.alpha = CGFloat(0.95)
 
         image.addSubview(view)

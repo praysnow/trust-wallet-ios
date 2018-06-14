@@ -40,8 +40,8 @@ class SendViewController: FormViewController {
     lazy var maxButton: UIButton = {
         let button = Button(size: .normal, style: .borderless)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(NSLocalizedString("send.max.button.title", value: "Max", comment: ""), for: .normal)
-        button.addTarget(self, action: #selector(useMaxAmount), for: .touchUpInside)
+        button.setTitle(NSLocalizedString("send.max.button.title", value: "Max", comment: ""), for: UIControl.State.normal)
+        button.addTarget(self, action: #selector(useMaxAmount), for: UIControl.Event.touchUpInside)
         return button
     }()
     private var allowedCharacters: String = {
@@ -111,8 +111,8 @@ class SendViewController: FormViewController {
     func amountField() -> TextFloatLabelRow {
         let fiatButton = Button(size: .normal, style: .borderless)
         fiatButton.translatesAutoresizingMaskIntoConstraints = false
-        fiatButton.setTitle(viewModel.currentPair.right, for: .normal)
-        fiatButton.addTarget(self, action: #selector(fiatAction), for: .touchUpInside)
+        fiatButton.setTitle(viewModel.currentPair.right, for: UIControl.State.normal)
+        fiatButton.addTarget(self, action: #selector(fiatAction), for: UIControl.Event.touchUpInside)
         fiatButton.isHidden = viewModel.isFiatViewHidden()
         let amountRightView = UIStackView(arrangedSubviews: [
             maxButton,
@@ -213,7 +213,7 @@ class SendViewController: FormViewController {
         //New pair for future calculation we should swap pair each time we press fiat button.
         viewModel.currentPair = swappedPair
         //Update button title.
-        sender.setTitle(viewModel.currentPair.right, for: .normal)
+        sender.setTitle(viewModel.currentPair.right, for: UIControl.State.normal)
         //Hide max button
         maxButton.isHidden = viewModel.isMaxButtonHidden()
         //Reset amountRow value.

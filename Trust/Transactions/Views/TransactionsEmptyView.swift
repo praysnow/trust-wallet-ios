@@ -44,12 +44,12 @@ class TransactionsEmptyView: UIView {
         imageView.image = image
 
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(NSLocalizedString("Refresh", value: "Refresh", comment: ""), for: .normal)
-        button.addTarget(self, action: #selector(retry), for: .touchUpInside)
+        button.setTitle(NSLocalizedString("Refresh", value: "Refresh", comment: ""), for: UIControl.State.normal)
+        button.addTarget(self, action: #selector(retry), for: UIControl.Event.touchUpInside)
 
         depositButton.translatesAutoresizingMaskIntoConstraints = false
-        depositButton.setTitle(NSLocalizedString("transactions.deposit.button.title", value: "Buy", comment: ""), for: .normal)
-        depositButton.addTarget(self, action: #selector(deposit(_:)), for: .touchUpInside)
+        depositButton.setTitle(NSLocalizedString("transactions.deposit.button.title", value: "Buy", comment: ""), for: UIControl.State.normal)
+        depositButton.addTarget(self, action: #selector(deposit(_:)), for: UIControl.Event.touchUpInside)
 
         let stackView = UIStackView(arrangedSubviews: [
             imageView,
